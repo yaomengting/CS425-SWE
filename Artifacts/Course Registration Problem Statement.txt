@@ -1,5 +1,0 @@
-Maharishi University of Management has asked you to design and develop a Student Registration System (MUMSched) for their Computer Science department. The system will enable students to register online for courses. The admin will update the class info to the system, and the student can choose from the available courses during the registration period. Also, the student can update his/her choices before the deadline of the registration period.  
-
-The admin will process the registration requests from the students after the deadline of registration period.  The admin will verify whether or not the student has satisfied the necessary prerequisites for each requested course, whether there is room available in each of the class(es). 
-
-After the admin processing the registration requests, the student can get registration result list. 
