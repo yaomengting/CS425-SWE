@@ -1,6 +1,4 @@
-package edu.mum.cs.cs425.eregistrar.model;
-
-
+package edu.mum.cs.cs425.eregistrawebapi.model;
 
 import com.sun.istack.NotNull;
 
@@ -28,6 +26,10 @@ public class Student {
     private LocalDate dateOfEnrollment;
     @NotNull
     private boolean isInternational;
+
+    public Student(){
+
+    }
 
     public Student(String studentNumber, String firstName, String middleName, String lastName, double cgpa, LocalDate dateOfEnrollment, boolean isInternational) {
         this.studentNumber = studentNumber;
@@ -117,3 +119,4 @@ public class Student {
         isInternational = international;
     }
 }
+
