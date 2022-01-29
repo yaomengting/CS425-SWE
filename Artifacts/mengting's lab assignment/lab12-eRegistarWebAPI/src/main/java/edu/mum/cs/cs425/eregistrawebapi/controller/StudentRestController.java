@@ -20,7 +20,7 @@ public class StudentRestController {
     }
 
     @PostMapping(value = "/add")
-    public Student addNewStudent( @RequestBody Student student) {.
+    public Student addNewStudent( @RequestBody Student student) {
         return studentService.addNewStudent(student);
     }
 
