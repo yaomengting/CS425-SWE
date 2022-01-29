@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-//@CrossOrigin(origins = {"http://127.0.0.1:5501","http://localhost:81"}, allowedHeaders = "*")
 @CrossOrigin(allowedHeaders = "*")
 @RequestMapping(value = "/eregistar/api/student", produces = MediaType.APPLICATION_JSON_VALUE)
 public class StudentRestController {
@@ -21,7 +20,7 @@ public class StudentRestController {
     }
 
     @PostMapping(value = "/add")
-    public Student addNewStudent( @RequestBody Student student) {
+    public Student addNewStudent( @RequestBody Student student) {.
         return studentService.addNewStudent(student);
     }
 
