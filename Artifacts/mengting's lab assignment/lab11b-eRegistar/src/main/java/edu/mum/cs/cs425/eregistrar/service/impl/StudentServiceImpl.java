@@ -10,8 +10,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class StudentServiceImpl implements StudentService {
-    @Autowired
+
     private StudentRepository studentRepository;
+    @Autowired
+    public StudentServiceImpl(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
 
     @Override
     public List<Student> getAllStudents() {
@@ -19,34 +23,34 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student addNewStudent(Student student) {
+    public Student saveStudent(Student student) {
         return studentRepository.save(student);
     }
-
-    @Override
-    public Student getStudentById(Integer studentId) {
-        return studentRepository.findById(studentId).orElse(null);
-    }
-
-    @Override
-    public Student updateStudentById(Student editedStudent, Integer studentId) {
-        return studentRepository.findById(studentId)
-                .map(studentToUpdate -> {
-                    studentToUpdate.setStudentNumber(editedStudent.getStudentNumber());
-                    studentToUpdate.setFirstName(editedStudent.getFirstName());
-                    studentToUpdate.setMiddleName(editedStudent.getMiddleName());
-                    studentToUpdate.setLastName(editedStudent.getLastName());
-                    studentToUpdate.setCgpa(editedStudent.getCgpa());
-                    studentToUpdate.setDateOfEnrollment(editedStudent.getDateOfEnrollment());
-                    studentToUpdate.setInternational(editedStudent.isInternational());
-                    return studentRepository.save(studentToUpdate);
-                }).orElseGet(() -> {
-                    return studentRepository.save(editedStudent);
-                });
-    }
-
-    @Override
-    public void deleteStudentById(Integer studentId) {
-        studentRepository.deleteById(studentId);
-    }
+//
+//    @Override
+//    public Student getStudentById(Integer studentId) {
+//        return studentRepository.findById(studentId).orElse(null);
+//    }
+//
+//    @Override
+//    public Student updateStudentById(Student editedStudent, Integer studentId) {
+//        return studentRepository.findById(studentId)
+//                .map(studentToUpdate -> {
+//                    studentToUpdate.setStudentNumber(editedStudent.getStudentNumber());
+//                    studentToUpdate.setFirstName(editedStudent.getFirstName());
+//                    studentToUpdate.setMiddleName(editedStudent.getMiddleName());
+//                    studentToUpdate.setLastName(editedStudent.getLastName());
+//                    studentToUpdate.setCgpa(editedStudent.getCgpa());
+//                    studentToUpdate.setDateOfEnrollment(editedStudent.getDateOfEnrollment());
+//                    studentToUpdate.setInternational(editedStudent.isInternational());
+//                    return studentRepository.save(studentToUpdate);
+//                }).orElseGet(() -> {
+//                    return studentRepository.save(editedStudent);
+//                });
+//    }
+//
+//    @Override
+//    public void deleteStudentById(Integer studentId) {
+//        studentRepository.deleteById(studentId);
+//    }
 }

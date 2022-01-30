@@ -9,14 +9,20 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
+//@RequestMapping(value = "/eregistrar/student")
 public class StudentController {
-    @Autowired
-    private StudentService studentService;
 
-    @GetMapping(value="/eregistrar/student/list")
+    private StudentService studentService;
+    @Autowired
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
+
+    @GetMapping(value={"/eregistrar/student/list", "student/list"})
     public ModelAndView listStudents(){
         ModelAndView modelAndView = new ModelAndView();
         List<Student> students = studentService.getAllStudents();
@@ -25,49 +31,49 @@ public class StudentController {
         return modelAndView;
     }
 
-//    @GetMapping(value = {"/eregistrar/student/new","/student/new"})
-//    public String displayNewStudentForm(Model model) {
-//        model.addAttribute("student", new Student());
-//        return "student/new";
-//    }
+    @GetMapping(value = {"/eregistrar/student/new","/student/new"})
+    public String displayNewStudentForm(Model model) {
+        model.addAttribute("student", new Student());
+        return "student/new";
+    }
 
-    @PostMapping(value="/student")
-    public String addNewStudent( @ModelAttribute("student") Student student,
+    @PostMapping(value = {"/eregistrar/student/new","/student/new"})
+    public String addNewStudent(@Valid @ModelAttribute("student") Student student,
                                 BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
             model.addAttribute("errors",bindingResult.getAllErrors());
             return "student/new";
         }
-        student = studentService.addNewStudent(student);
+        student = studentService.saveStudent(student);
         return "redirect:/eregistrar/student/list";
     }
- // to do
-    @GetMapping(value = {"/eregistrar/student/edit/{studentId}","/student/edit/{studentId}"})
-    public String editStudent(@PathVariable Integer studentId, Model model) {
-        Student student = studentService.getStudentById(studentId);
-        if (student != null) {
-            model.addAttribute("student", student);
-            return "student/edit";
-        }
-        return "student/list";
-    }
-
-    @PostMapping(value = {"/eregistrar/student/edit","/student/edit"})
-    public String updateStudent(@ModelAttribute("student") Student student,
-                             BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
-            model.addAttribute("errors", bindingResult.getAllErrors());
-            return "student/edit";
-        }
-        student = studentService.addNewStudent(student);
-        return "redirect:/eregistrar/student/list";
-    }
-
-    @GetMapping(value = {"/eregistrar/student/delete/{studentId}","/student/delete/{studentId}"})
-    public String deleteStudent(@PathVariable Integer studentId, Model model) {
-        studentService.deleteStudentById(studentId);
-        return "redirect:/eregistrar/student/list";
-    }
+// // to do
+//    @GetMapping(value = {"/eregistrar/student/edit/{studentId}","/student/edit/{studentId}"})
+//    public String editStudent(@PathVariable Integer studentId, Model model) {
+//        Student student = studentService.getStudentById(studentId);
+//        if (student != null) {
+//            model.addAttribute("student", student);
+//            return "student/edit";
+//        }
+//        return "student/list";
+//    }
+//
+//    @PostMapping(value = {"/eregistrar/student/edit","/student/edit"})
+//    public String updateStudent(@ModelAttribute("student") Student student,
+//                             BindingResult bindingResult, Model model) {
+//        if (bindingResult.hasErrors()) {
+//            model.addAttribute("errors", bindingResult.getAllErrors());
+//            return "student/edit";
+//        }
+//        student = studentService.addNewStudent(student);
+//        return "redirect:/eregistrar/student/list";
+//    }
+//
+//    @GetMapping(value = {"/eregistrar/student/delete/{studentId}","/student/delete/{studentId}"})
+//    public String deleteStudent(@PathVariable Integer studentId, Model model) {
+//        studentService.deleteStudentById(studentId);
+//        return "redirect:/eregistrar/student/list";
+//    }
 
 
 
