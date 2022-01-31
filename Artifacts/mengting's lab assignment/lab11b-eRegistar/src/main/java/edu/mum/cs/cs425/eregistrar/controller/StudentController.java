@@ -31,6 +31,25 @@ public class StudentController {
         return modelAndView;
     }
 
+    @GetMapping(value={"/eregistrar/student/list/highgpa", "student/list/highgpa"})
+    public ModelAndView listOfHighGpaStudents(){
+        ModelAndView modelAndView = new ModelAndView();
+        List<Student> students = studentService.findStudentGpaGreaterThan();
+        modelAndView.addObject("students", students);
+        modelAndView.setViewName("student/list");
+        return modelAndView;
+    }
+
+//    @GetMapping(value={"/eregistrar/student/list", "student/list"})
+//    public ModelAndView listNewComeStudents(Student student){
+//        ModelAndView modelAndView = new ModelAndView();
+//        List<Student> students = studentService.findStudentEnrollmentDateLaterThan("2010-12-1");
+//        modelAndView.addObject("students", students);
+//        modelAndView.setViewName("student/list");
+//        return modelAndView;
+//    }
+
+
     @GetMapping(value = {"/eregistrar/student/new","/student/new"})
     public String displayNewStudentForm(Model model) {
         model.addAttribute("student", new Student());

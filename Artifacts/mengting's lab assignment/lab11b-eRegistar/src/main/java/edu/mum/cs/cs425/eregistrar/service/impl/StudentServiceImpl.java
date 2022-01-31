@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 @Service
 public class StudentServiceImpl implements StudentService {
@@ -53,4 +54,15 @@ public class StudentServiceImpl implements StudentService {
     public void deleteStudentById(Integer studentId) {
         studentRepository.deleteById(studentId);
     }
+
+    @Override
+    public List<Student> findStudentGpaGreaterThan() {
+        return studentRepository.findStudentGpaGreaterThan();
+    }
+
+//    @Override
+//    public List<Student> findStudentEnrollmentDateLaterThan(LocalDate dateOfEnrollment) {
+//        return studentRepository.findStudentEnrollmentDateLaterThan(dateOfEnrollment);
+//    }
+
 }
