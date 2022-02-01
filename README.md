@@ -10,7 +10,7 @@ POST localhost/login
 ```
 
 ## Get Approved course
-get localhost/approved-list
+get localhost/approved-list?username=sai
 ```
 [{
   "blockName":"April 2022",
@@ -28,7 +28,7 @@ get localhost/approved-list
 ```
 
 ## get course with block
-get localhost/courses
+get localhost/courses?username=sai
 ```
 {
 "endTime":"2022-12-01T00:00:00",
