@@ -30,7 +30,9 @@ get localhost/approved-list
 ## get course with block
 get localhost/courses
 ```
-[{
+{
+"endTime":"2022-12-01T00:00:00",
+"offering":[{
   "id":10, //offering id
   "blockID":1,
   "courseName":"Compro Entry Group",
@@ -39,10 +41,14 @@ get localhost/courses
   "blockID":2,
   "courseName":"Compro Entry Group",
 }]
+}
 ```
 ## post course with block and priority
+post localhost/courses-register
 ```
-[{
+{
+"username":"sai",
+"data":[{
   "id":10, //offering id
   "priority":1,
   "blockID":1,
@@ -51,4 +57,5 @@ get localhost/courses
   "priority":2,
   "blockID":2,
 }]
+}
 ```
