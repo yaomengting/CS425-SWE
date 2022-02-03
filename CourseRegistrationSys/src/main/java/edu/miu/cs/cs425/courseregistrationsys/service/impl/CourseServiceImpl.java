@@ -13,15 +13,36 @@ import java.util.List;
 
 @Service
 public class CourseServiceImpl implements CourseService {
-
-    private CourseRepository courseRepository;
     @Autowired
-    public CourseServiceImpl(CourseRepository courseRepository) {
-        this.courseRepository = courseRepository;
-    }
+    private CourseRepository courseRepository;
 
     @Override
     public List<Course> getCourses() {
         return courseRepository.findAll();
+    }
+
+    @Override
+    public Course getCourseById(Integer id) {
+        return courseRepository.getById(id);
+    }
+
+    @Override
+    public Course updateCourseById(Course editedCourse, Integer id) {
+        return courseRepository.findById(id)
+        .map(courseToUpdate -> {
+            courseToUpdate.setCode(editedCourse.getCode());
+            courseToUpdate.setName(editedCourse.getName());
+            courseToUpdate.setDescription(editedCourse.getDescription());
+            return courseRepository.save(courseToUpdate);
+        }).orElseGet(() -> {
+                    return courseRepository.save(editedCourse);
+
+        });
+    }
+
+    @Override
+    public Course saveCourse(Course course) {
+        return null;
+
     }
 }

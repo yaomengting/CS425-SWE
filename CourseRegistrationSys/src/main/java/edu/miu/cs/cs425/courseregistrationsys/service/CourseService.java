@@ -8,5 +8,8 @@ import java.util.List;
 
 public interface CourseService {
     List<Course> getCourses();
+    public abstract Course getCourseById(Integer id);
+    public abstract Course updateCourseById(Course editedCourse,Integer id);
+    public abstract Course saveCourse(Course course);
 
 }
