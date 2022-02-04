@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>eRegistrar Student System</title>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/eregistrar/student/list">View All Students</a>
+        <a href="/eregistrar/student/new">Add New Student</a>
+
+    </nav>
+</header>
+<div>
+    <h1>List of Students</h1>
+    <div>
+        <table cellpadding="5" cellspacing="0" border="1">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>studentNumber</th>
+                <th>firstName</th>
+                <th>middleName</th>
+                <th>lastName</th>
+                <th>cgpa</th>
+                <th>dateOfEnrollment</th>
+                <th>isInternational</th>
+                <!--                    <th>#</th>-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="student, counter : ${students}">
+                <th scope="row" th:text="${counter.count}"></th>
+                <td th:text="${student.studentNumber}"></td>
+                <td th:text="${student.firstName}"></td>
+                <td th:text="${student.middleName}"></td>
+                <td th:text="${student.lastName}"></td>
+                <td th:text="${student.cgpa}"></td>
+                <td th:text="${student.dateOfEnrollment}"></td>
+                <td th:text="${student.isInternational}"></td>
+                <td><a th:href="@{'/eregistrar/student/edit/{studentId}'(studentId=${student.studentId})}">Edit</a></td>
+                <td><a th:href="@{'/eregistrar/student/delete/{studentId}'(studentId=${student.studentId})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

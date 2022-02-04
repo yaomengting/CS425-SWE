@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Student Form</title>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/course/list">View All Courses</a>
+        <a href="/course/add">Add New Course</a>
+        <a href="/faculty/list">View All Faculties</a>
+        <a href="/faculty/add">Add New Faculty</a>
+        <a href="/academicBlock/list">View All AcademicBlocks</a>
+        <a href="/academicBlock/add">Add New AcademicBlock</a>
+        <a href="/student/list">View All Students</a>
+        <a href="/student/add">Add New Student</a>
+        <a href="/courseOffering/list">View All CourseOfferings</a>
+    </nav>
+</header>
+<div>
+
+
+    <form id="newCourseForm" method="post" action="/course/add" th:object="${course}">
+        <fieldset>
+            <input type="hidden" name="id" th:value="${course.id}"/>
+
+            <div>
+                <label>Course Code</label>
+                <span th:if="${#fields.hasErrors('code')}" th:errors="*{code}"
+                      class="alert alert-danger"></span>
+                <input  id="code" name="code" type="text" class="form-control"
+                        th:value="${course.code}" autofocus required>
+            </div>
+            <div>
+                <label>Course Name</label>
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                      class="alert alert-danger"></span>
+                <input  id="name" name="name" type="text" class="form-control"
+                        th:value="${course.name}" autofocus required>
+            </div>
+            <div>
+                <label>Course Description</label>
+                <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
+                      class="alert alert-danger"></span>
+                <input  id="description" name="description" type="text" class="form-control"
+                        th:value="${course.description}" autofocus required>
+            </div>
+            <div>
+                <a href="/course/list" class="btn btn-outline-warning">Cancel</a>&nbsp;&nbsp;&nbsp;
+                <button id="btnSubmit" type="submit" class="btn btn-outline-success">Save Course</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Student Form</title>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/eregistrar/student/list">Students</a>
+    </nav>
+</header>
+<div>
+
+
+    <form id="newStudentForm" method="post" action="/eregistrar/student/new" th:object="${student}">
+        <fieldset>
+            <input type="hidden" name="studentId" th:value="${student.studentId}"/>
+
+            <div>
+                <label>Student Number</label>
+                <span th:if="${#fields.hasErrors('studentNumber')}" th:errors="*{studentNumber}"
+                      class="alert alert-danger"></span>
+                <input  id="studentNumber" name="studentNumber" type="text" class="form-control"
+                       th:value="${student.studentNumber}" autofocus required>
+            </div>
+            <div>
+                <label>First Name</label>
+                <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
+                      class="alert alert-danger"></span>
+                <input  id="firstName" name="firstName" type="text" class="form-control"
+                       th:value="${student.firstName}" autofocus required>
+            </div>
+            <div>
+                <label>Middle Name</label>
+                <span th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}"
+                      class="alert alert-danger"></span>
+                <input  id="middleName" name="middleName" type="text" class="form-control"
+                       th:value="${student.middleName}" autofocus required>
+            </div>
+            <div>
+                <label>Last Name</label>
+                <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+                      class="alert alert-danger"></span>
+                <input  id="lastName" name="lastName" type="text" class="form-control"
+                       th:value="${student.lastName}" autofocus required>
+            </div>
+            <div>
+                <label>GPA</label>
+                <span th:if="${#fields.hasErrors('cgpa')}" th:errors="*{cgpa}"
+                      class="alert alert-danger"></span>
+                <input id="cgpa" name="cgpa" type="text" class="form-control"
+                       th:value="${student.cgpa}" autofocus required>
+            </div>
+            <div>
+                <label>Enrollment Date</label>
+                <span th:if="${#fields.hasErrors('dateOfEnrollment')}" th:errors="*{dateOfEnrollment}"
+                      class="alert alert-danger"></span>
+                <input  id="dateOfEnrollment" name="dateOfEnrollment" type="text" class="form-control"
+                       th:value="${student.dateOfEnrollment}" autofocus required>
+            </div>
+            <div>
+                <label>Is International Student</label>
+                <span th:if="${#fields.hasErrors('isInternational')}" th:errors="*{isInternational}"
+                      class="alert alert-danger"></span>
+                <input id="isInternational" name="isInternational" type="text" class="form-control"
+                       th:value="${student.isInternational}" autofocus required>
+<!--                <select name="isInternational" id="isInternational">-->
+<!--                    <option value="yes">Yes</option>-->
+<!--                    <option value="no">No</option>-->
+<!--                </select>-->
+            </div>
+
+
+
+            <div>
+                <a href="/eregistrar/student/list" class="btn btn-outline-warning">Cancel</a>&nbsp;&nbsp;&nbsp;
+                <button id="btnSubmit" type="submit" class="btn btn-outline-success">Save Student</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+
+</body>
+</html>
