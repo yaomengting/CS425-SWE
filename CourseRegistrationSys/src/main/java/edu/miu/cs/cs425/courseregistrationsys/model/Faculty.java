@@ -5,17 +5,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-@EqualsAndHashCode(callSuper = true)
+//@EqualsAndHashCode(callSuper = true)
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class Faculty extends Role{
+//public class Faculty extends Role{
+public class Faculty{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     @Column(nullable = false)
     private String name;
 

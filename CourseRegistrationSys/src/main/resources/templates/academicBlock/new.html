@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Student Form</title>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/course/list">View All Courses</a>
+        <a href="/course/add">Add New Course</a>
+        <a href="/faculty/list">View All Faculties</a>
+        <a href="/faculty/add">Add New Faculty</a>
+        <a href="/academicBlock/list">View All AcademicBlocks</a>
+        <a href="/academicBlock/add">Add New AcademicBlock</a>
+        <a href="/student/list">View All Students</a>
+        <a href="/student/add">Add New Student</a>
+        <a href="/courseOffering/list">View All CourseOfferings</a>
+    </nav>
+</header>
+<div>
+
+
+    <form id="newAcademicBlockForm" method="post" action="/academicBlock/add" th:object="${academicBlock}">
+        <fieldset>
+            <input type="hidden" name="id" th:value="${academicBlock.id}"/>
+
+            <div>
+                <label>AcademicBlock Code</label>
+                <span th:if="${#fields.hasErrors('code')}" th:errors="*{code}"
+                      class="alert alert-danger"></span>
+                <input  id="code" name="code" type="text" class="form-control"
+                        th:value="${academicBlock.code}" autofocus required>
+            </div>
+            <div>
+                <label>AcademicBlock Name</label>
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                      class="alert alert-danger"></span>
+                <input  id="name" name="name" type="text" class="form-control"
+                        th:value="${academicBlock.name}" autofocus required>
+            </div>
+            <div>
+                <label>AcademicBlock StartDate</label>
+                <span th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"
+                      class="alert alert-danger"></span>
+                <input  id="startDate" name="startDate" type="text" class="form-control"
+                        th:value="${academicBlock.startDate}" autofocus required>
+            </div>
+            <div>
+                <label>AcademicBlock EndDate</label>
+                <span th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"
+                      class="alert alert-danger"></span>
+                <input  id="endDate" name="endDate" type="text" class="form-control"
+                        th:value="${academicBlock.endDate}" autofocus required>
+            </div>
+            <div>
+                <a href="/academicBlock/list" class="btn btn-outline-warning">Cancel</a>&nbsp;&nbsp;&nbsp;
+                <button id="btnSubmit" type="submit" class="btn btn-outline-success">Save AcademicBlock</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+
+</body>
+</html>

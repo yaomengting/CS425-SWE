@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Faculty Form</title>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/course/list">View All Courses</a>
+        <a href="/course/add">Add New Course</a>
+        <a href="/faculty/list">View All Faculties</a>
+        <a href="/faculty/add">Add New Faculty</a>
+        <a href="/academicBlock/list">View All AcademicBlocks</a>
+        <a href="/academicBlock/add">Add New AcademicBlock</a>
+        <a href="/student/list">View All Students</a>
+        <a href="/student/add">Add New Student</a>
+        <a href="/courseOffering/list">View All CourseOfferings</a>
+
+    </nav>
+</header>
+<div>
+
+
+    <form id="newStudentForm" method="post" action="/student/add" th:object="${student}">
+        <fieldset>
+            <input type="hidden" name="id" th:value="${student.id}"/>
+            <div>
+                <label>Student StudentId</label>
+                <span th:if="${#fields.hasErrors('studentId')}" th:errors="*{studentId}"
+                      class="alert alert-danger"></span>
+                <input  id="studentId" name="studentId" type="text" class="form-control"
+                        th:value="${student.studentId}" autofocus required>
+            </div>
+            <div>
+                <label>Student Name</label>
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                      class="alert alert-danger"></span>
+                <input  id="name" name="name" type="text" class="form-control"
+                        th:value="${student.name}" autofocus required>
+            </div>
+            <div>
+                <label>Student Email</label>
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                      class="alert alert-danger"></span>
+                <input  id="email" name="email" type="text" class="form-control"
+                        th:value="${student.email}" autofocus required>
+            </div>
+
+            <div>
+                <a href="/student/list" class="btn btn-outline-warning">Cancel</a>&nbsp;&nbsp;&nbsp;
+                <button id="btnSubmit" type="submit" class="btn btn-outline-success">Save Student</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+
+</body>
+</html>

@@ -8,12 +8,16 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Collection;
 
-@EqualsAndHashCode(callSuper = true)
+//@EqualsAndHashCode(callSuper = true)
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
-public class Student extends Role{
+//public class Student extends Role{
+public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @Column(nullable = false, unique = true)
     private String studentId;
@@ -24,11 +28,12 @@ public class Student extends Role{
     @Column(nullable = false)
     private String email;
 
-    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
-    private Collection<RegistrationRequest> registrationRequests;
+//    @OneToMany(mappedBy = "student",fetch = FetchType.EAGER)
+//    private Collection<RegistrationRequest> registrationRequests;
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-    private Collection<Registration> registrations;
+    @ManyToMany
+    @JoinTable(name = "Registration")
+    private Collection<CourseOffering> courseOfferings;
 
     public Student(String studentId, String name, String email) {
         this.studentId = studentId;
@@ -36,15 +41,10 @@ public class Student extends Role{
         this.email = email;
     }
 
-    public Student(String studentId, String name, String email, Collection<RegistrationRequest> registrationRequests, Collection<Registration> registrations) {
+    public Student(String studentId, String name, String email,  Collection<CourseOffering> courseOfferings) {
         this.studentId = studentId;
         this.name = name;
         this.email = email;
-        this.registrationRequests = registrationRequests;
-        this.registrations = registrations;
-    }
-
-    public void addRegistration(Registration registration) {
-        this.registrations.add(registration);
+        this.courseOfferings = courseOfferings;
     }
 }

@@ -1,7 +1,8 @@
 package edu.miu.cs.cs425.courseregistrationsys.controller;
 
 import edu.miu.cs.cs425.courseregistrationsys.model.Course;
-import edu.miu.cs.cs425.courseregistrationsys.service.CourseService;
+import edu.miu.cs.cs425.courseregistrationsys.model.Faculty;
+import edu.miu.cs.cs425.courseregistrationsys.service.FacultyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,38 +17,36 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "/course")
-public class CourseController {
-    private CourseService courseService;
-
+@RequestMapping(value = "/faculty")
+public class FacultyController {
+    private FacultyService facultyService;
     @Autowired
-    public CourseController(CourseService courseService) {
-        this.courseService = courseService;
+    public FacultyController(FacultyService facultyService) {
+        this.facultyService = facultyService;
     }
     @GetMapping(value={"/list"})
-    public ModelAndView listCourses(){
+    public ModelAndView listFaculties(){
         ModelAndView modelAndView = new ModelAndView();
-        List<Course> courses = courseService.getCourses();
-        modelAndView.addObject("courses", courses);
-        modelAndView.setViewName("course/list");
+        List<Faculty> faculties = facultyService.getAllFaculty();
+        modelAndView.addObject("faculties", faculties);
+        modelAndView.setViewName("faculty/list");
         return modelAndView;
     }
 
     @GetMapping(value = {"/add"})
-    public String displayNewCourseForm(Model model) {
-        model.addAttribute("course", new Course());
-        return "course/new";
+    public String displayNewFacultyForm(Model model) {
+        model.addAttribute("faculty", new Faculty());
+        return "faculty/new";
     }
 
     @PostMapping(value = {"/add"})
-    public String addNewCourse(@Valid @ModelAttribute("course") Course course,
-                                BindingResult bindingResult, Model model){
+    public String addNewFaculty(@Valid @ModelAttribute("faculty") Faculty faculty,
+                               BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
             model.addAttribute("errors",bindingResult.getAllErrors());
-            return "course/new";
+            return "faculty/new";
         }
-        course = courseService.addNewCourse(course);
-        return "redirect:/course/list";
+        faculty = facultyService.addNewFaculty(faculty);
+        return "redirect:/faculty/list";
     }
-
 }

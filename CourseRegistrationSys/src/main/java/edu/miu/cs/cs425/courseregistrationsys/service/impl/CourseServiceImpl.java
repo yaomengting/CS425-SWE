@@ -24,4 +24,14 @@ public class CourseServiceImpl implements CourseService {
     public List<Course> getCourses() {
         return courseRepository.findAll();
     }
+
+    @Override
+    public Course getCourseById(Integer id) {
+        return courseRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Course addNewCourse(Course newCourse) {
+        return courseRepository.save(newCourse);
+    }
 }

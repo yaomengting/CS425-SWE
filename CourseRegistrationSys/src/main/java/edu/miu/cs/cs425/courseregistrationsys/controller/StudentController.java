@@ -1,7 +1,8 @@
 package edu.miu.cs.cs425.courseregistrationsys.controller;
 
-import edu.miu.cs.cs425.courseregistrationsys.model.Course;
-import edu.miu.cs.cs425.courseregistrationsys.service.CourseService;
+import edu.miu.cs.cs425.courseregistrationsys.model.Faculty;
+import edu.miu.cs.cs425.courseregistrationsys.model.Student;
+import edu.miu.cs.cs425.courseregistrationsys.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,38 +17,37 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "/course")
-public class CourseController {
-    private CourseService courseService;
-
+@RequestMapping(value = "/student")
+public class StudentController {
+    private StudentService studentService;
     @Autowired
-    public CourseController(CourseService courseService) {
-        this.courseService = courseService;
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
     }
+
     @GetMapping(value={"/list"})
-    public ModelAndView listCourses(){
+    public ModelAndView listStudents(){
         ModelAndView modelAndView = new ModelAndView();
-        List<Course> courses = courseService.getCourses();
-        modelAndView.addObject("courses", courses);
-        modelAndView.setViewName("course/list");
+        List<Student> students = studentService.getAllStudents();
+        modelAndView.addObject("students", students);
+        modelAndView.setViewName("student/list");
         return modelAndView;
     }
 
     @GetMapping(value = {"/add"})
-    public String displayNewCourseForm(Model model) {
-        model.addAttribute("course", new Course());
-        return "course/new";
+    public String displayNewStudentForm(Model model) {
+        model.addAttribute("student", new Student());
+        return "student/new";
     }
 
     @PostMapping(value = {"/add"})
-    public String addNewCourse(@Valid @ModelAttribute("course") Course course,
+    public String addNewStudent(@Valid @ModelAttribute("student") Student student,
                                 BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
             model.addAttribute("errors",bindingResult.getAllErrors());
-            return "course/new";
+            return "student/new";
         }
-        course = courseService.addNewCourse(course);
-        return "redirect:/course/list";
+        student = studentService.addNewStudent(student);
+        return "redirect:/student/list";
     }
-
 }
