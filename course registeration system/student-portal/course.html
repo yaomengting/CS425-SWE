@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Clean Blog - Start Bootstrap Theme</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- Navigation-->
+    <nav
+      class="navbar navbar-expand-lg"
+      id="mainNav"
+      style="color: black !important"
+    >
+      <div class="container px-4 px-lg-5">
+        <a
+          class="navbar-brand"
+          href="index.html"
+          style="color: black !important"
+          >Student Registration System</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto py-4 py-lg-0">
+            <li class="nav-item" style="color: black !important">
+              <a
+                class="nav-link px-lg-3 py-3 py-lg-4"
+                href="index.html"
+                style="color: black !important"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item" style="color: black !important">
+              <a
+                class="nav-link px-lg-3 py-3 py-lg-4"
+                href="course.html"
+                style="color: black !important"
+                >Courses</a
+              >
+            </li>
+            <li class="nav-item" style="color: black !important">
+              <a
+                class="nav-link px-lg-3 py-3 py-lg-4"
+                href="student.html"
+                style="color: black !important"
+                >Students</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Page Header-->
+    <nav class="navbar" style="height: 70px; color: black"></nav>
+
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5">
+        <div class="col-md-11 col-lg-11 col-xl-11">
+          <div class="row gx-4 gx-lg-5">
+            <h5 style="color: rgb(37, 37, 37) !important">Courses</h5>
+          </div>
+          <form action="http://locahost" id="course_form">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Name</label>
+              <input
+                name="name"
+                id="name"
+                class="form-control"
+                type="text"
+                placeholder="Default input"
+                aria-label="default input example"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="desc" class="form-label">Description</label>
+              <textarea
+                name="desc"
+                class="form-control"
+                id="desc"
+                rows="3"
+              ></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Prerequisite</label
+              >
+              <input
+                name="pre"
+                id="pre"
+                class="form-control"
+                type="text"
+                placeholder="Default input"
+                aria-label="default input example"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          <!-- Post preview-->
+        </div>
+        <div class="col-md-11 col-lg-11 col-xl-11">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Prerequisite</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="table"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer-->
+    <!-- <footer class="border-top">
+      <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#!">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#!">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#!">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <div class="small text-center text-muted fst-italic">
+              Copyright &copy; Your Website 2021
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer> -->
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <script src="js/jquery.sortable.js"></script>
+    <script>
+      //http://localhost/approved-list?username=sai
+      $(document).ready(function () {
+        getData();
+      });
+      const exampleForm = document.getElementById("course_form");
+      exampleForm.addEventListener("submit", handleFormSubmit);
+      async function handleFormSubmit(event) {
+        event.preventDefault();
+
+        const form = event.currentTarget;
+        const url = "#";
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        if (!data.id) {
+          const result = fetch("https://httpbin.org/post", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((response) => response.json())
+            .then((data) => getData());
+        } else {
+          const result = fetch(
+            "https://jsonplaceholder.typicode.com/todos/" + data.id,
+            {
+              method: "PUT",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            }
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              $("#update_id").remove();
+              $("#name").val("");
+              $("#desc").val("");
+              $("#pre").val("");
+              getData();
+            });
+        }
+      }
+      function getData() {
+        fetch("https://jsonplaceholder.typicode.com/todos/")
+          .then((response) => response.json())
+          .then((data) => {
+            data = [
+              {
+                id: 1,
+                name: "April 2022",
+                description: "CS390",
+                prerequisite: "Compro Entry Group",
+              },
+              {
+                id: 2,
+                name: "April 2022",
+                description: "CS390",
+                prerequisite: "Compro Entry Group",
+              },
+            ];
+            let html = "";
+            data.map((item, index) => {
+              html +=
+                "<tr><td>" +
+                (index + 1) +
+                "</td><td>" +
+                item.name +
+                "</td><td>" +
+                item.description +
+                "</td><td>" +
+                item.prerequisite +
+                "</td><td class='action'><button type='button' class='btn btn-danger delete' id='" +
+                item.id +
+                "'>Delete</button> <button type='button' class='btn btn-warning update' id='" +
+                item.id +
+                "'>Update</button></td></tr>";
+            });
+            $("#table").append(html);
+          });
+      }
+
+      $("#table").on("click", ".delete", function () {
+        var id = $(this).siblings("input").val();
+        let result = fetch("https://jsonplaceholder.typicode.com/todos/" + id, {
+          method: "DELETE",
+        })
+          .then((response) => response.json())
+          .then((data) => alert("Deleted"));
+      });
+      $("#table").on("click", ".update", function () {
+        var id = $(this).attr("id");
+
+        let result = fetch("https://jsonplaceholder.typicode.com/todos/" + id, {
+          method: "GET",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            data = {
+              id: 1,
+              name: "April 2022",
+              description: "CS390",
+              prerequisite: "Compro Entry Group",
+            };
+            $("#course_form").append(
+              "<input type='hidden' name='id' value='" +
+                data.id +
+                "' id='update_id'/>"
+            );
+            $("#name").val(data.name);
+            $("#desc").val(data.description);
+            $("#pre").val(data.prerequisite);
+            window.scrollTo(0, 0);
+          })
+          .catch((err) => console.log(err));
+      });
+    </script>
+  </body>
+</html>
