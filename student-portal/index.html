@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Clean Blog - Start Bootstrap Theme</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- Navigation-->
+    <nav
+      class="navbar navbar-expand-lg"
+      id="mainNav"
+      style="color: black !important"
+    >
+      <div class="container px-4 px-lg-5">
+        <a
+          class="navbar-brand"
+          href="index.html"
+          style="color: black !important"
+          >Student Registration System</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ms-auto py-4 py-lg-0">
+            <li class="nav-item" style="color: black !important">
+              <a
+                class="nav-link px-lg-3 py-3 py-lg-4"
+                href="index.html"
+                style="color: black !important"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item" style="color: black !important">
+              <a
+                class="nav-link px-lg-3 py-3 py-lg-4"
+                href="course.html"
+                style="color: black !important"
+                >Courses</a
+              >
+            </li>
+            <li class="nav-item" style="color: black !important">
+              <a
+                class="nav-link px-lg-3 py-3 py-lg-4"
+                href="student.html"
+                style="color: black !important"
+                >Students</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Page Header-->
+    <nav class="navbar" style="height: 70px; color: black"></nav>
+
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-11 col-lg-11 col-xl-11">
+          <div
+            class="row gx-4 gx-lg-5 justify-content-center"
+            style="text-align: center"
+          >
+            <h5 style="color: rgb(37, 37, 37) !important">
+              Confirmed Registrations
+            </h5>
+          </div>
+
+          <!-- Post preview-->
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Block</th>
+                <th scope="col">Course ID</th>
+                <th scope="col">Course Name</th>
+                <th scope="col">Faculty</th>
+                <th scope="col">Start Date</th>
+              </tr>
+            </thead>
+            <tbody id="courses">
+              <tr>
+                <td>None</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="container px-5 px-lg-5" style="margin-bottom: 50px">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-11 col-lg-11 col-xl-11">
+          <div>
+            <h5>Course Registration</h5>
+            <p>
+              Registration window will be closed on
+              <span id="endTime">Time</span>
+            </p>
+          </div>
+
+          <!-- Post preview-->
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Block 1
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse show"
+                aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body" id="block1"></div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  Block 2
+                </button>
+              </h2>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body" id="block2"></div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  Block 3
+                </button>
+              </h2>
+              <div
+                id="collapseThree"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body" id="block3"></div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour"
+                  aria-expanded="false"
+                  aria-controls="collapseFour"
+                >
+                  Block 4
+                </button>
+              </h2>
+              <div
+                id="collapseFour"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body" id="block4"></div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary" id="submit">
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer-->
+    <!-- <footer class="border-top">
+      <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#!">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#!">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#!">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <div class="small text-center text-muted fst-italic">
+              Copyright &copy; Your Website 2021
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer> -->
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <script src="js/jquery.sortable.js"></script>
+    <script>
+      //http://localhost/approved-list?username=sai
+      fetch("https://jsonplaceholder.typicode.com/todos/")
+        .then((response) => response.json())
+        .then((data) => {
+          data = [
+            {
+              blockName: "April 2022",
+              courseCode: "CS390",
+              courseName: "Compro Entry Group",
+              facultyName: "Kyaw",
+              startDate: "2022-12-01T00:00:00",
+            },
+            {
+              blockName: "April 2022",
+              courseCode: "CS390",
+              courseName: "Compro Entry Group",
+              facultyName: "Kyaw",
+              startDate: "2022-12-01T00:00:00",
+            },
+          ];
+          let html = "";
+          data.map((item) => {
+            var date = new Date(item.startDate);
+            html +=
+              "<tr><td>" +
+              item.blockName +
+              "</td><td>" +
+              item.courseCode +
+              "</td><td>" +
+              item.courseName +
+              "</td><td>" +
+              item.facultyName +
+              "</td><td>" +
+              date.toLocaleDateString("en-US") +
+              "</td></tr>";
+          });
+          if (data.length > 0) {
+            $("#courses").children().remove();
+            $("#courses").append(html);
+          }
+        });
+
+      //http://localhost/approved-list?username=sai
+      fetch("https://jsonplaceholder.typicode.com/todos/")
+        .then((response) => response.json())
+        .then((data) => {
+          data = [
+            {
+              id: 1,
+              name: "Course",
+              description: "Description",
+            },
+            {
+              id: 2,
+              name: "Course2",
+              description: "Description",
+            },
+            {
+              id: 3,
+              name: "Course3",
+              description: "Description",
+            },
+          ];
+          let block1 = [];
+          let block2 = [];
+          let block3 = [];
+          let block4 = [];
+
+          let block1html = "";
+          let block2html = "";
+          let block3html = "";
+          let block4html = "";
+          data.map((item) => {
+            block1html +=
+              "<div class='form-check'><input class='form-check-input' type='radio' name='block1' id='flexRadioDefault" +
+              item.id +
+              "' value='" +
+              item.id +
+              "'/><label class='form-check-label' for='flexRadioDefault" +
+              item.id +
+              "'>" +
+              item.name +
+              "(" +
+              item.description +
+              ")" +
+              "</label></div>";
+            return item;
+          });
+          $("#block1").append(block1html);
+          $("#block1").sortable({
+            placeholderClass: "list-group-item",
+          });
+
+          data.map((item) => {
+            block2html +=
+              "<div class='form-check'><input class='form-check-input' type='radio' name='block2' id='flexRadioDefault" +
+              item.id +
+              "' value='" +
+              item.id +
+              "'/><label class='form-check-label' for='flexRadioDefault" +
+              item.id +
+              "'>" +
+              item.name +
+              "(" +
+              item.description +
+              ")" +
+              "</label></div>";
+            return item;
+          });
+          $("#block2").append(block2html);
+          $("#block2").sortable({
+            placeholderClass: "list-group-item",
+          });
+
+          data.map((item) => {
+            block3html +=
+              "<div class='form-check'><input class='form-check-input' type='radio' name='block3' id='flexRadioDefault" +
+              item.id +
+              "' value='" +
+              item.id +
+              "'/><label class='form-check-label' for='flexRadioDefault" +
+              item.id +
+              "'>" +
+              item.name +
+              "(" +
+              item.description +
+              ")" +
+              "</label></div>";
+            return item;
+          });
+          $("#block3").append(block3html);
+          $("#block3").sortable({
+            placeholderClass: "list-group-item",
+          });
+
+          data.map((item) => {
+            block4html +=
+              "<div class='form-check'><input class='form-check-input' type='radio' name='block4' id='flexRadioDefault" +
+              item.id +
+              "' value='" +
+              item.id +
+              "'/><label class='form-check-label' for='flexRadioDefault" +
+              item.id +
+              "'>" +
+              item.name +
+              "(" +
+              item.description +
+              ")" +
+              "</label></div>";
+            return item;
+          });
+          $("#block4").append(block4html);
+          $("#block4").sortable({
+            placeholderClass: "list-group-item",
+          });
+        });
+      function submit() {
+        var radioValue = $("input[name='block1']:checked").val();
+        console.log(radioValue);
+      }
+      $("#submit").on("click", function () {
+        var block1 = $("input[name='block1']:checked").val();
+        var block2 = $("input[name='block2']:checked").val();
+        var block3 = $("input[name='block2']:checked").val();
+        var block4 = $("input[name='block2']:checked").val();
+
+        const result = fetch("https://httpbin.org/post", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify([
+            {
+              block: "BLOCK_1",
+              student: { id: 1 },
+              course: { id: block1 },
+              status: "PENDING",
+            },
+            {
+              block: "BLOCK_2",
+              student: { id: 1 },
+              course: { id: block2 },
+              status: "PENDING",
+            },
+            {
+              block: "BLOCK_1",
+              student: { id: 1 },
+              course: { id: block3 },
+              status: "PENDING",
+            },
+            {
+              block: "BLOCK_1",
+              student: { id: 1 },
+              course: { id: block4 },
+              status: "PENDING",
+            },
+          ]),
+        })
+          .then((response) => response.json())
+          .then((data) => getData());
+      });
+      var idsInOrder = $("#block1").sortable("toArray");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: course
+  datasource:
+    url: jdbc:mysql://localhost/cs544?useSSL=false&serverTimezone=America/Chicago
+    username: root
+    password: aungkhant
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jpa:
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        format_sql: true
+        generate_statistics: true
+    hibernate:
+      use-new-id-generator-mappings: 'false'
+      ddl-auto: create-drop
+    show-sql: true
+
+
+logging:
+  level:
+    root: WARN
